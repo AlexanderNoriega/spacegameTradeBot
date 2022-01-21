@@ -1,3 +1,6 @@
+import csv
+import os
+
 import discord
 
 from utils.data_utils import get_price, update_price
@@ -6,139 +9,53 @@ resources = {}
 
 
 class Resource:
-    def __init__(self, name:str, default_price: int = 0):
+    def __init__(
+        self,
+        resource_name: str,
+        resource_group: str,
+        price_I: str,
+        price_II: str,
+        price_III: str,
+        price_IV: str,
+        price_V: str,
+    ):
         global resources
-        self.name = name
-        self.default_price = default_price
-        resources[name] = self
+        self.name = resource_name
+        self.resource_group = resource_group
+        resources[resource_name.lower()] = self
+        self.price_I_default = price_I
+        self.price_II_default = price_II
+        self.price_III_default = price_III
+        self.price_IV_default = price_IV
+        self.price_V_default = price_V
 
-    def price(self, guild: discord.Guild) -> int:
-        resource_dict = get_price(self.name, guild, self.default_price)
-        return resource_dict.get("price", self.default_price)
+    def get_default_price(self, quality: str):
+        if quality == "I":
+            return self.price_I_default
+        elif quality == "II":
+            return self.price_II_default
+        elif quality == "III":
+            return self.price_III_default
+        elif quality == "IV":
+            return self.price_IV_default
+        elif quality == "V":
+            return self.price_V_default
+        else:
+            return 0
 
-    def set_price(self, new_price: int, guild: discord.Guild) -> None:
+    def price(self, quality: str, guild: discord.Guild) -> int:
         resource_dict = get_price(self.name, guild)
-        resource_dict["price"] = new_price
+        return resource_dict.get(f"price_{quality}", self.get_default_price(quality))
+
+    def set_price(self, quality: str, new_price: int, guild: discord.Guild) -> None:
+        resource_dict = get_price(self.name, guild)
+        resource_dict[f"price_{quality}"] = new_price
         update_price(resource=resource_dict, guild=guild)
 
 
-Advanced_Aerocraft_Droids = Resource(name="Advanced Aerocraft Droids", default_price=100)
-Advanced_Anti_Aerocraft_Droids = Resource(name="Advanced Anti-Aerocraft Droids", default_price=100)
-Advanced_Anti_Armor_Droids = Resource(name="Advanced Anti-Armor Droids", default_price=100)
-Advanced_Armor_Droids = Resource(name="Advanced Armor Droids", default_price=100)
-Advanced_Industrial_Machines = Resource(name="Advanced Industrial Machines", default_price=100)
-Advanced_Industrial_Robots = Resource(name="Advanced Industrial Robots", default_price=100)
-Advanced_Seacraft_Droids = Resource(name="Advanced Seacraft Droids", default_price=100)
-Aerocraft = Resource(name="Aerocraft", default_price=100)
-Agricultural_Machines = Resource(name="Agricultural Machines", default_price=100)
-Agricultural_Robots = Resource(name="Agricultural Robots", default_price=100)
-Alcohol = Resource(name="Alcohol", default_price=100)
-Alkalis = Resource(name="Alkalis", default_price=100)
-Anomalous_Fuel_Resource = Resource(name="Anomalous Fuel Resource", default_price=100)
-Anomalous_Ore_Resource = Resource(name="Anomalous Ore Resource", default_price=100)
-Anomalous_Organism_Resource = Resource(name="Anomalous Organism Resource", default_price=100)
-Anti_Aircraft_Armaments = Resource(name="Anti-Aircraft Armaments", default_price=100)
-Anti_Armor_Armaments = Resource(name="Anti-Armor Armaments", default_price=100)
-Anti_Seacraft_Armaments = Resource(name="Anti-Seacraft Armaments", default_price=100)
-Basic_Aerocraft_Droids = Resource(name="Basic Aerocraft Droids", default_price=100)
-Basic_Anti_Aerocraft_Droids = Resource(name="Basic Anti-Aerocraft Droids", default_price=100)
-Basic_Anti_Armor_Droids = Resource(name="Basic Anti-Armor Droids", default_price=100)
-Basic_Armaments = Resource(name="Basic Armaments", default_price=100)
-Basic_Armor_Droids = Resource(name="Basic Armor Droids", default_price=100)
-Basic_Seacraft_Droids = Resource(name="Basic Seacraft Droids", default_price=100)
-Biological_Missile = Resource(name="Biological Missile", default_price=100)
-Carbon_Nanotubes = Resource(name="Carbon Nanotubes", default_price=100)
-Cellulose = Resource(name="Cellulose", default_price=100)
-Chemical_Gas = Resource(name="Chemical Gas", default_price=100)
-Cleaners = Resource(name="Cleaners", default_price=100)
-Coal = Resource(name="Coal", default_price=100)
-Concrete = Resource(name="Concrete", default_price=100)
-Construction_Materials = Resource(name="Construction Materials", default_price=100)
-Conventional_Missile = Resource(name="Conventional Missile", default_price=100)
-Depleted_Metals = Resource(name="Depleted Metals", default_price=100)
-Drilling_Fluid = Resource(name="Drilling Fluid", default_price=100)
-Drilling_Machines = Resource(name="Drilling Machines", default_price=100)
-Drilling_Robots = Resource(name="Drilling Robots", default_price=100)
-Dyes = Resource(name="Dyes", default_price=100)
-Electrical_Machines = Resource(name="Electrical Machines", default_price=100)
-Electrical_Robots = Resource(name="Electrical Robots", default_price=100)
-Electronics = Resource(name="Electronics", default_price=100)
-Fabric = Resource(name="Fabric", default_price=100)
-Fertilizer = Resource(name="Fertilizer", default_price=100)
-Fortfication_Materials = Resource(name="Fortfication Materials", default_price=100)
-FountainDrink_LLC_Toner_Soda = Resource(name="FountainDrink LLC Toner (Soda)", default_price=100)
-FountainDrink_of_War = Resource(name="FountainDrink of War", default_price=100)
-Fuel_Cell = Resource(name="Fuel Cell", default_price=100)
-Gae_Dearg_Nuclear = Resource(name="Gae Dearg Nuclear", default_price=100)
-Garments = Resource(name="Garments", default_price=100)
-Gem_Stone = Resource(name="Gem Stone", default_price=100)
-Genetic_Code_Alien_Animal = Resource(name="Genetic Code (Alien Animal)", default_price=100)
-Genetic_Code_Alien_Sapient = Resource(name="Genetic Code (Alien Sapient)", default_price=100)
-Genetic_Code_Earth_Animal = Resource(name="Genetic Code (Earth Animal)", default_price=100)
-Genetic_Code_Human = Resource(name="Genetic Code (Human)", default_price=100)
-Glass = Resource(name="Glass", default_price=100)
-Gungir_Nuclear_Spacecraft = Resource(name="Gungir Nuclear Spacecraft", default_price=100)
-Heavy_Excavation_Machines = Resource(name="Heavy Excavation Machines", default_price=100)
-Heavy_Excavation_Robots = Resource(name="Heavy Excavation Robots", default_price=100)
-Heavy_Metal_Ore = Resource(name="Heavy Metal Ore", default_price=100)
-Human_Slaves = Resource(name="Human Slaves", default_price=100)
-Hydrogen = Resource(name="Hydrogen", default_price=100)
-Ice = Resource(name="Ice", default_price=100)
-Industrial_Machines = Resource(name="Industrial Machines", default_price=100)
-Industrial_Robots = Resource(name="Industrial Robots", default_price=100)
-Internet = Resource(name="Internet", default_price=100)
-Jewelry = Resource(name="Jewelry", default_price=100)
-Lasers = Resource(name="Lasers", default_price=100)
-Light_Metal_Ore = Resource(name="Light Metal Ore", default_price=100)
-Medical_Machines = Resource(name="Medical Machines", default_price=100)
-Medical_Robots = Resource(name="Medical Robots", default_price=100)
-Medicinal_Products = Resource(name="Medicinal Products", default_price=100)
-Military_Machines = Resource(name="Military Machines", default_price=100)
-Military_Robots = Resource(name="Military Robots", default_price=100)
-Mixed_Cuisine = Resource(name="Mixed Cuisine", default_price=100)
-Mobile_Armor = Resource(name="Mobile Armor", default_price=100)
-Munitions = Resource(name="Munitions", default_price=100)
-Native_Animal_Products = Resource(name="Native Animal Products", default_price=100)
-Native_Cuisine = Resource(name="Native Cuisine", default_price=100)
-Native_Livestock = Resource(name="Native Livestock", default_price=100)
-Native_Produce = Resource(name="Native Produce", default_price=100)
-Native_Slaves = Resource(name="Native Slaves", default_price=100)
-Native_Spice = Resource(name="Native Spice", default_price=100)
-Natural_Gas = Resource(name="Natural Gas", default_price=100)
-Noble_Metal_Ore = Resource(name="Noble Metal Ore", default_price=100)
-Nuclear_Armaments = Resource(name="Nuclear Armaments", default_price=100)
-Nuclear_Fuel = Resource(name="Nuclear Fuel", default_price=100)
-Nuclear_Missile = Resource(name="Nuclear Missile", default_price=100)
-Oil = Resource(name="Oil", default_price=100)
-Petrol = Resource(name="Petrol", default_price=100)
-Pharmaceuticals = Resource(name="Pharmaceuticals", default_price=100)
-Plastics = Resource(name="Plastics", default_price=100)
-Pleasure_Machines = Resource(name="Pleasure Machines", default_price=100)
-Pleasure_Robots = Resource(name="Pleasure Robots", default_price=100)
-Power = Resource(name="Power", default_price=100)
-Psychoactives = Resource(name="Psychoactives", default_price=100)
-Rare_Animal_Product = Resource(name="Rare Animal Product", default_price=100)
-Rare_Earth_Metal_Ore = Resource(name="Rare Earth Metal Ore", default_price=100)
-Refined_Heavy_Metal = Resource(name="Refined Heavy Metal", default_price=100)
-Refined_Light_Metal = Resource(name="Refined Light Metal", default_price=100)
-Refined_Noble_Metal = Resource(name="Refined Noble Metal", default_price=100)
-Refined_Rare_Earth_Metal = Resource(name="Refined Rare Earth Metal", default_price=100)
-Salt = Resource(name="Salt", default_price=100)
-Sand = Resource(name="Sand", default_price=100)
-Seacraft = Resource(name="Seacraft", default_price=100)
-Software = Resource(name="Software", default_price=100)
-Sol_Animal_Products = Resource(name="Sol Animal Products", default_price=100)
-Sol_Cuisine = Resource(name="Sol Cuisine", default_price=100)
-Sol_Livestock = Resource(name="Sol Livestock", default_price=100)
-Sol_Produce = Resource(name="Sol Produce", default_price=100)
-Sol_Spice = Resource(name="Sol Spice", default_price=100)
-Space_Lube = Resource(name="Space Lube", default_price=100)
-Stone = Resource(name="Stone", default_price=100)
-Textiles = Resource(name="Textiles", default_price=100)
-Tires = Resource(name="Tires", default_price=100)
-Trishula_Nuclear_Amphibicraft = Resource(name="Trishula Nuclear Amphibicraft", default_price=100)
-Usable_Fibres = Resource(name="Usable Fibres", default_price=100)
-Vehicles = Resource(name="Vehicles", default_price=100)
-Water = Resource(name="Water", default_price=100)
-Water_Purification_Machines = Resource(name="Water Purification Machines", default_price=100)
-Water_Purification_Robots = Resource(name="Water Purification Robots", default_price=100)
+def load_resources():
+    if not resources.keys():
+        with open(os.path.join("content", "prices.csv"), "r") as f:
+            csvreader = csv.DictReader(f)
+            for row in csvreader:
+                Resource(**row)

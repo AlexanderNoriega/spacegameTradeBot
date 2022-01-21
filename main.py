@@ -5,6 +5,7 @@ from discord.ext import commands
 from dotenv import load_dotenv
 
 # Load environment variables
+from game_logic import resources
 from utils.discord_utils import handle_message
 from utils.reaction_utils import number_to_word, waiting_for
 
@@ -19,11 +20,15 @@ client = commands.Bot(command_prefix="=", intents=intents)
 @client.event
 async def on_ready() -> None:
     await client.wait_until_ready()
+    resources.load_resources()
     print("I'm ready.")
 
 
 async def handle_response(
-    user: discord.User, channel: discord.TextChannel, message: discord.Message, guild: discord.guild
+    user: discord.User,
+    channel: discord.TextChannel,
+    message: discord.Message,
+    guild: discord.guild,
 ) -> None:
     await client.wait_until_ready()
     try:

@@ -1,0 +1,121 @@
+resource_name,resource_group,price_I,price_II,price_III,price_IV,price_V
+Advanced Aerocraft Droids,Basic,10,15,20,30,40
+Advanced Anti-Aerocraft Droids,Basic,10,15,20,30,40
+Advanced Anti-Armor Droids,Basic,10,15,20,30,40
+Advanced Armor Droids,Basic,10,15,20,30,40
+Advanced Industrial Machines,Basic,10,15,20,30,40
+Advanced Industrial Robots,Basic,10,15,20,30,40
+Advanced Seacraft Droids,Basic,10,15,20,30,40
+Aerocraft,Basic,10,15,20,30,40
+Agricultural Machines,Basic,10,15,20,30,40
+Agricultural Robots,Basic,10,15,20,30,40
+Alcohol,Basic,10,15,20,30,40
+Alkalis,Basic,10,15,20,30,40
+Anomalous Fuel Resource,Basic,10,15,20,30,40
+Anomalous Ore Resource,Basic,10,15,20,30,40
+Anomalous Organism Resource,Basic,10,15,20,30,40
+Anti-Aircraft Armaments,Basic,10,15,20,30,40
+Anti-Armor Armaments,Basic,10,15,20,30,40
+Anti-Seacraft Armaments,Basic,10,15,20,30,40
+Basic Aerocraft Droids,Basic,10,15,20,30,40
+Basic Anti-Aerocraft Droids,Basic,10,15,20,30,40
+Basic Anti-Armor Droids,Basic,10,15,20,30,40
+Basic Armaments,Basic,10,15,20,30,40
+Basic Armor Droids,Basic,10,15,20,30,40
+Basic Seacraft Droids,Advanced,10,15,20,30,40
+Biological Missile,Advanced,10,15,20,30,40
+Carbon Nanotubes,Advanced,10,15,20,30,40
+Cellulose,Advanced,10,15,20,30,40
+Chemical Gas,Advanced,10,15,20,30,40
+Cleaners,Advanced,10,15,20,30,40
+Coal,Advanced,10,15,20,30,40
+Concrete,Advanced,10,15,20,30,40
+Construction Materials,Advanced,10,15,20,30,40
+Conventional Missile,Advanced,10,15,20,30,40
+Depleted Metals,Advanced,10,15,20,30,40
+Drilling Fluid,Advanced,10,15,20,30,40
+Drilling Machines,Advanced,10,15,20,30,40
+Drilling Robots,Fuel,10,15,20,30,40
+Dyes,Fuel,10,15,20,30,40
+Electrical Machines,Fuel,10,15,20,30,40
+Electrical Robots,Fuel,10,15,20,30,40
+Electronics,Fuel,10,15,20,30,40
+Fabric,Fuel,10,15,20,30,40
+Fertilizer,Fuel,10,15,20,30,40
+Fortfication Materials,Fuel,10,15,20,30,40
+FountainDrink LLC Toner (Soda),Fuel,10,15,20,30,40
+FountainDrink of War,Fuel,10,15,20,30,40
+Fuel Cell,Fuel,10,15,20,30,40
+Gae Dearg Nuclear,Fuel,10,15,20,30,40
+Garments,Fuel,10,15,20,30,40
+Gem Stone,Fuel,10,15,20,30,40
+Genetic Code (Alien Animal),Trade Goods,10,15,20,30,40
+Genetic Code (Alien Sapient),Trade Goods,10,15,20,30,40
+Genetic Code (Earth Animal),Trade Goods,10,15,20,30,40
+Genetic Code (Human),Trade Goods,10,15,20,30,40
+Glass,Trade Goods,10,15,20,30,40
+Gungir Nuclear Spacecraft,Trade Goods,10,15,20,30,40
+Heavy Excavation Machines,Trade Goods,10,15,20,30,40
+Heavy Excavation Robots,Trade Goods,10,15,20,30,40
+Heavy Metal Ore,Trade Goods,10,15,20,30,40
+Human Slaves,Trade Goods,10,15,20,30,40
+Hydrogen,Trade Goods,10,15,20,30,40
+Ice,Trade Goods,10,15,20,30,40
+Industrial Machines,Trade Goods,10,15,20,30,40
+Industrial Robots,Trade Goods,10,15,20,30,40
+Internet,Trade Goods,10,15,20,30,40
+Jewelry,Mineral Refinemen,10,15,20,30,40
+Lasers,Mineral Refinemen,10,15,20,30,40
+Light Metal Ore,Mineral Refinemen,10,15,20,30,40
+Medical Machines,Mineral Refinemen,10,15,20,30,40
+Medical Robots,Mineral Refinemen,10,15,20,30,40
+Medicinal Products,Mineral Refinemen,10,15,20,30,40
+Military Machines,Mineral Refinemen,10,15,20,30,40
+Military Robots,Mineral Refinemen,10,15,20,30,40
+Mixed Cuisine,Mineral Refinemen,10,15,20,30,40
+Mobile Armor,Mineral Refinemen,10,15,20,30,40
+Munitions,Mineral Refinemen,10,15,20,30,40
+Native Animal Products,Mineral Refinemen,10,15,20,30,40
+Native Cuisine,Mineral Refinemen,10,15,20,30,40
+Native Livestock,Mineral Refinemen,10,15,20,30,40
+Native Produce,Mineral Refinemen,10,15,20,30,40
+Native Slaves,Mineral Refinemen,10,15,20,30,40
+Native Spice,Mineral Refinemen,10,15,20,30,40
+Natural Gas,Mineral Refinemen,10,15,20,30,40
+Noble Metal Ore,Mineral Refinemen,10,15,20,30,40
+Nuclear Armaments,Mineral Refinemen,10,15,20,30,40
+Nuclear Fuel,Mineral Refinemen,10,15,20,30,40
+Nuclear Missile,Mineral Refinemen,10,15,20,30,40
+Oil,Mineral Refinemen,10,15,20,30,40
+Petrol,Mineral Refinemen,10,15,20,30,40
+Pharmaceuticals,Mineral Refinemen,10,15,20,30,40
+Plastics,Mineral Refinemen,10,15,20,30,40
+Pleasure Machines,Mineral Refinemen,10,15,20,30,40
+Pleasure Robots,Organics,10,15,20,30,40
+Power,Organics,10,15,20,30,40
+Psychoactives,Organics,10,15,20,30,40
+Rare Animal Product,Organics,10,15,20,30,40
+Rare Earth Metal Ore,Organics,10,15,20,30,40
+Refined Heavy Metal,Organics,10,15,20,30,40
+Refined Light Metal,Organics,10,15,20,30,40
+Refined Noble Metal,Organics,10,15,20,30,40
+Refined Rare Earth Metal,Organics,10,15,20,30,40
+Salt,Organics,10,15,20,30,40
+Sand,Organics,10,15,20,30,40
+Seacraft,Organics,10,15,20,30,40
+Software,Organics,10,15,20,30,40
+Sol Animal Products,Organics,10,15,20,30,40
+Sol Cuisine,Organics,10,15,20,30,40
+Sol Livestock,Organics,10,15,20,30,40
+Sol Produce,Organics,10,15,20,30,40
+Sol Spice,Organics,10,15,20,30,40
+Space Lube,Organics,10,15,20,30,40
+Stone,Organics,10,15,20,30,40
+Textiles,Organics,10,15,20,30,40
+Tires,Minerals,10,15,20,30,40
+Trishula Nuclear Amphibicraft,Minerals,10,15,20,30,40
+Usable Fibres,Minerals,10,15,20,30,40
+Vehicles,Minerals,10,15,20,30,40
+Water,Minerals,10,15,20,30,40
+Water Purification Machines,Minerals,10,15,20,30,40
+Water Purification Robots,Minerals,10,15,20,30,40

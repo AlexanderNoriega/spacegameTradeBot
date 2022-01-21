@@ -69,20 +69,20 @@ def update_account(account, user: discord.User, guild: discord.Guild) -> None:
     collection.replace_one({"user": user.id, "guild": guild.id}, account)
 
 
-def get_price(resource: str, guild: discord.Guild, default_price:int = 0) -> dict:
+def get_price(resource: str, guild: discord.Guild) -> Optional[dict]:
     collection = _get_collection("prices")
     prices = [x for x in collection.find({"resource": resource, "guild": guild.id})]
 
     if len(prices) > 1:
         print(f"More than one price found! Defaulting to first.")
     elif len(prices) == 0:
-        return {"resource": resource, "guild": guild, "price": default_price}
+        return {"resource": resource, "guild": guild.id}
     else:
         return prices[0]
 
 
 def update_price(resource: dict, guild: discord.Guild) -> None:
     collection = _get_collection("prices")
-    collection.replace_one({"resource": resource["resource"], "guild": guild.id}, resource)
-
-
+    collection.replace_one(
+        {"resource": resource["resource"], "guild": guild.id}, resource
+    )
