@@ -1,0 +1,9 @@
+black
+py-cord
+python-dotenv
+pymongo
+dnspython
+certifi
+Pillow
+black
+requests
